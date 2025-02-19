@@ -7,12 +7,14 @@
     <string name="hint_pass">Introduce tu contraseña</string>
     <string name="hint_pass_confirm">Confirma tu contraseña</string>
     <string name="checkbox_terminos">Acepto los términos y condiciones</string>
+    <string name="btn_inicio">Inicio</string>
     <string name="btn_registrar">Registrar</string>
     <string name="btn_cancelar">Cancelar</string>
-    <string name="btn_login">Inicio</string>
 
     <string-array name="perfiles">
         <item>Administrador</item>
         <item>Usuario</item>
     </string-array>
+
+    <string name="test">test</string>
 </resources>
