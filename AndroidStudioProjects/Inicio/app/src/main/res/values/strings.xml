@@ -11,6 +11,16 @@
     <string name="btn_registrar">Registrar</string>
     <string name="btn_cancelar">Cancelar</string>
 
+    <!-- Textos para la pantalla de bienvenida y perfil -->
+    <string name="bienvenido">Bienvenido/a,</string>
+    <string name="nombre">Nombre: </string>
+    <string name="correo">Correo: </string>
+    <string name="contraseña">Contraseña: </string>
+
+    <!-- Descripciones de iconos -->
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+
     <string-array name="perfiles">
         <item>Administrador</item>
         <item>Usuario</item>

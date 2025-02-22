@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -90,7 +89,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editPassReg" />
 
-
     <!-- Spinner para perfil/rol -->
     <Spinner
         android:id="@+id/spinnerPerfilReg"
@@ -104,7 +102,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editPassConfirm" />
-
 
     <!-- CheckBox términos y condiciones -->
     <CheckBox
@@ -120,11 +117,9 @@
         app:layout_constraintTop_toBottomOf="@id/spinnerPerfilReg" />
 
     <!-- Contenedor para los botones -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkTerminos">
@@ -133,19 +128,22 @@
         <Button
             android:id="@+id/btnCancelarRegistro"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/btn_cancelar" />
+            android:layout_marginEnd="8dp"
+            android:text="@string/btn_cancelar"
+            app:layout_constraintEnd_toStartOf="@id/btnRegistrarUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Botón Registrar -->
         <Button
             android:id="@+id/btnRegistrarUsuario"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/btn_registrar" />
-    </LinearLayout>
+            android:text="@string/btn_registrar"
+            app:layout_constraintStart_toEndOf="@id/btnCancelarRegistro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

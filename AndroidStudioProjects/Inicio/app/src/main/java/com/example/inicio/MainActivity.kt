@@ -86,25 +86,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         butonLogin.setOnClickListener {
-            // Cambiar de pantalla
-            val user = User(
-                editCorreo.text.toString(),
-                editPass.text.toString(),
-                spinnerPerfil.selectedItem.toString()
-            )
+            // Recoger datos del usuario
+            val correo = editCorreo.text.toString()
+            val pass = editPass.text.toString()
 
-            val bundle = Bundle()
-            bundle.putSerializable("user", user)
-
-            val intent = Intent(applicationContext, SecondActivity::class.java)
-            intent.putExtra("datos", bundle)
-
+            // Crear Intent para cambiar de pantalla
+            val intent = Intent(this, SecondActivity::class.java).apply {
+                putExtra("correo", correo)
+                putExtra("contraseña", pass)
+            }
             startActivity(intent)
         }
 
-        // ACCIÓN PARA BOTÓN "REGISTRO"
         butonRegistro.setOnClickListener {
-            // Aquí abrimos la RegisterActivity
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
