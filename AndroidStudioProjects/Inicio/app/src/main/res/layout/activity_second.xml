@@ -7,8 +7,8 @@
     <!-- Imagen del logo -->
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/logo"
         android:contentDescription="Logo de la app"
         android:layout_alignParentLeft="true"
@@ -41,6 +41,18 @@
         android:layout_below="@id/textBienvenido"
         android:textColor="#000000"/>
 
+    <!-- Tipo de usuario -->
+    <TextView
+        android:id="@+id/textPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/perfil"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/imageLogo"
+        android:layout_marginLeft="16dp"
+        android:layout_below="@id/textCorreo"
+        android:textColor="#000000"/>
+
     <!-- Contraseña del usuario -->
     <TextView
         android:id="@+id/textContraseña"
@@ -50,7 +62,7 @@
         android:textSize="18sp"
         android:layout_toEndOf="@id/imageLogo"
         android:layout_marginLeft="16dp"
-        android:layout_below="@id/textCorreo"
+        android:layout_below="@id/textPerfil"
         android:textColor="#000000"/>
 
 </RelativeLayout>

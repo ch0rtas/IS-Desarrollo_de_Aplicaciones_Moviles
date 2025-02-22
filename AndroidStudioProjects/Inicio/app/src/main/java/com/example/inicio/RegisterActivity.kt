@@ -46,19 +46,13 @@ class RegisterActivity : AppCompatActivity() {
         // Inicialmente deshabilitar el botón
         btnRegistrarUsuario.isEnabled = false
 
-        // Listener para habilitar o deshabilitar el botón de registro cuando cambien los términos o los campos de texto
-        checkTerminos.setOnCheckedChangeListener { _, _ ->
-            habilitarBotonRegistro()
-        }
+        // Listener para habilitar o deshabilitar el botón de registro cuando cambian los términos o los campos de texto
+        checkTerminos.setOnCheckedChangeListener { _, _ -> habilitarBotonRegistro() }
 
         // Agregar TextWatcher para escuchar cambios en los campos
         val textWatcher = object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                habilitarBotonRegistro()
-            }
-
+            override fun afterTextChanged(s: Editable?) { habilitarBotonRegistro() }
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         }
 
@@ -75,43 +69,32 @@ class RegisterActivity : AppCompatActivity() {
             val pass = editPassReg.text.toString()
             val passConfirm = editPassConfirm.text.toString()
 
+            // Obtener el perfil seleccionado del Spinner
+            val perfilSeleccionado = spinnerPerfilReg.selectedItem.toString()
+
             // Validar que las contraseñas coincidan y los términos estén aceptados
             if (pass == passConfirm && checkTerminos.isChecked) {
                 if (nombre.isNotEmpty() && correo.isNotEmpty() && pass.isNotEmpty()) {
-                    // Navegar a la siguiente actividad (por ejemplo, SecondActivity)
+                    // Navegar a la siguiente actividad (SecondActivity) y pasar todos los datos
                     val intent = Intent(this, SecondActivity::class.java).apply {
                         putExtra("nombre", nombre)
                         putExtra("correo", correo)
                         putExtra("contraseña", pass)
+                        putExtra("perfil", perfilSeleccionado) // Agregar el rol seleccionado
                     }
                     startActivity(intent)
                 } else {
-                    Toast.makeText(
-                        this,
-                        "Todos los campos son obligatorios",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this, "Todos los campos son obligatorios", Toast.LENGTH_SHORT).show()
                 }
             } else if (!checkTerminos.isChecked) {
-                // Mostrar un aviso si no se aceptaron los términos
-                Toast.makeText(
-                    this,
-                    "Debes aceptar los términos y condiciones para registrarte",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Debes aceptar los términos y condiciones para registrarte", Toast.LENGTH_SHORT).show()
             } else {
-                // Mostrar un aviso si las contraseñas no coinciden
-                Toast.makeText(
-                    this,
-                    "Las contraseñas no coinciden",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
             }
         }
 
         btnCancelarRegistro.setOnClickListener {
-            // Cerrar la actividad y regresar a la anterior
-            finish()
+            finish()  // Cerrar la actividad
         }
     }
 
@@ -122,14 +105,12 @@ class RegisterActivity : AppCompatActivity() {
         editCorreoReg.text.clear()
         editPassReg.text.clear()
         editPassConfirm.text.clear()
-
-        // Desmarcar el checkbox de términos
         checkTerminos.isChecked = false
-
-        // Deshabilitar el botón de registro hasta que se cumplan las condiciones
         btnRegistrarUsuario.isEnabled = false
-    }
 
+        // Resetear el Spinner a la primera opción
+        spinnerPerfilReg.setSelection(0)
+    }
 
     // Método para habilitar o deshabilitar el botón de registro
     private fun habilitarBotonRegistro() {
@@ -139,7 +120,6 @@ class RegisterActivity : AppCompatActivity() {
         val isValidPassConfirm = editPassConfirm.text.isNotEmpty()
         val isTermsChecked = checkTerminos.isChecked
 
-        // El botón se habilita solo si todos los campos son válidos y el checkbox está marcado
         btnRegistrarUsuario.isEnabled = isValidNombre && isValidCorreo && isValidPass && isValidPassConfirm && isTermsChecked
     }
 }

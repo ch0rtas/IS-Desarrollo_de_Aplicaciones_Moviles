@@ -16,6 +16,7 @@
     <string name="nombre">Name: </string>
     <string name="correo">Email: </string>
     <string name="contraseña">Password: </string>
+    <string name="perfil">Profile: </string>
 
     <!-- Icon descriptions -->
     <string name="email">Email</string>

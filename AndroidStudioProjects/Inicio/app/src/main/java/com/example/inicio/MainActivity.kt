@@ -75,10 +75,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        // Limpiar campos de texto
         editCorreo.text.clear()
         editPass.text.clear()
         check.isChecked = false
+
+        // Resetear el Spinner a la primera opción
+        spinnerPerfil.setSelection(0)
     }
+
 
     private fun acciones() {
         check.setOnCheckedChangeListener { _, isChecked ->
@@ -89,11 +94,13 @@ class MainActivity : AppCompatActivity() {
             // Recoger datos del usuario
             val correo = editCorreo.text.toString()
             val pass = editPass.text.toString()
+            val perfil = spinnerPerfil.selectedItem.toString() // Obtener el valor seleccionado del spinner
 
             // Crear Intent para cambiar de pantalla
             val intent = Intent(this, SecondActivity::class.java).apply {
                 putExtra("correo", correo)
                 putExtra("contraseña", pass)
+                putExtra("perfil", perfil) // Pasar el perfil al Intent
             }
             startActivity(intent)
         }
