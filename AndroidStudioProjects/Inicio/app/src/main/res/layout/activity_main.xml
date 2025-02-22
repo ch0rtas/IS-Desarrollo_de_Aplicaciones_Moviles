@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:enabled="false"
-        android:text="@string/btn_login"
+        android:text="@string/btn_inicio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/checkInicio"
         app:layout_constraintStart_toStartOf="@+id/guideline2"

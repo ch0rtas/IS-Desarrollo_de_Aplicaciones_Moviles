@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home - APP Manu</string>
+    <string name="app_name">APP-Manu</string>
 
     <!-- Texts for the registration screen -->
     <string name="hint_nombre">Enter your name</string>
