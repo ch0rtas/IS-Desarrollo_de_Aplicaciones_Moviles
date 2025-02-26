@@ -18,10 +18,9 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
-import com.example.inicio.model.User
-import com.example.inicio.R
-import com.example.inicio.SecondActivity
+import com.example.inicio.ui.activity.SecondActivity
 import com.example.inicio.databinding.ActivityMainBinding
+import com.example.inicio.ui.activity.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
     /*
@@ -99,7 +98,7 @@ class MainActivity : AppCompatActivity() {
             // Crear Intent para cambiar de pantalla
             val intent = Intent(this, SecondActivity::class.java).apply {
                 putExtra("correo", correo)
-                putExtra("contraseña", pass)
+                putExtra("contrasena", pass)
                 putExtra("perfil", perfil) // Pasar el perfil al Intent
             }
             startActivity(intent)

@@ -1,4 +1,4 @@
-package com.example.inicio
+package com.example.inicio.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.inicio.R
-import com.example.inicio.SecondActivity
 import com.example.inicio.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -75,11 +74,11 @@ class RegisterActivity : AppCompatActivity() {
             // Validar que las contraseñas coincidan y los términos estén aceptados
             if (pass == passConfirm && checkTerminos.isChecked) {
                 if (nombre.isNotEmpty() && correo.isNotEmpty() && pass.isNotEmpty()) {
-                    // Navegar a la siguiente actividad (SecondActivity) y pasar todos los datos
-                    val intent = Intent(this, SecondActivity::class.java).apply {
+                    // Navegar a la siguiente actividad (ShowUserActivity) y pasar todos los datos
+                    val intent = Intent(this, ShowUserActivity::class.java).apply {
                         putExtra("nombre", nombre)
                         putExtra("correo", correo)
-                        putExtra("contraseña", pass)
+                        putExtra("contrasena", pass)
                         putExtra("perfil", perfilSeleccionado) // Agregar el rol seleccionado
                     }
                     startActivity(intent)
