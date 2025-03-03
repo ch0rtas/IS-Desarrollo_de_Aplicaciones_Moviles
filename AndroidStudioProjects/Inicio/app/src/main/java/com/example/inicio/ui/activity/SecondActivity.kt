@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inicio.R
+import com.example.inicio.adapter.ContactAdapter
+import com.example.inicio.data.DataSet
 import com.example.inicio.databinding.ActivitySecondBinding
 import com.example.inicio.model.User
 import com.example.inicio.ui.dialog.InfoDialog
@@ -12,44 +16,55 @@ import com.example.inicio.ui.dialog.InfoDialog
 class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding
+    private lateinit var contactAdapter: ContactAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        instancias()
         obtenerDatos()
+    }
 
+    private fun instancias() {
+        contactAdapter = ContactAdapter(DataSet.lista, this)
+        binding.recycler.adapter = contactAdapter
+
+        // Configuración del RecyclerView según la orientación
+        if (resources.configuration.orientation == 1) { // Modo vertical
+            binding.recycler.layoutManager = LinearLayoutManager(
+                applicationContext, LinearLayoutManager.VERTICAL, false
+            )
+        } else { // Modo horizontal
+            binding.recycler.layoutManager = GridLayoutManager(
+                applicationContext, 2, LinearLayoutManager.VERTICAL, false
+            )
+        }
     }
 
     private fun obtenerDatos() {
-        // Obtener los datos directamente desde el Intent
         val correo = intent.getStringExtra("correo")
-        val contrasena = intent.getStringExtra("contrasena")
         val perfil = intent.getStringExtra("perfil")
 
-        // Puedes hacer algo con los datos aquí, como mostrarlos en la interfaz
-        supportActionBar?.title = correo // Por ejemplo, mostrar el correo en el ActionBar
+        supportActionBar?.title = correo ?: "Sin correo"
     }
-
+    
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu,menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        when(item.itemId){
-            R.id.itemCerrarSesion ->{finish()}
-            R.id.itemInformacion ->{
-                // escribir el codigo del cuadro de dialogo aqui
-                // escribir el codigo del cuadro de dialogo en una clase
-                val dialogo: InfoDialog = InfoDialog()
-                dialogo.show(supportFragmentManager,null)
+        when (item.itemId) {
+            R.id.itemCerrarSesion -> finish()
+            R.id.itemInformacion -> {
+                val dialogo = InfoDialog()
+                dialogo.show(supportFragmentManager, null)
             }
-            R.id.itemAccion1 ->{}
-            R.id.itemAccion2 ->{}
+            R.id.itemAccion1 -> { /* Acción 1 */ }
+            R.id.itemAccion2 -> { /* Acción 2 */ }
         }
-
         return true
     }
 }
