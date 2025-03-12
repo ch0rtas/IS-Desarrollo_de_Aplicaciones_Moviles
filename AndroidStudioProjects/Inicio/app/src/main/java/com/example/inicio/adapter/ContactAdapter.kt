@@ -42,11 +42,15 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
                     R.id.menuContactDetalle -> {
                         val contact = lista[adapterPosition]
                         val intent = Intent(context, ContactDetailsActivity::class.java).apply {
-                            putExtra("contactName", "${contact.firstName} ${contact.lastName}")
-                            putExtra("contactPhone", contact.phone)
-                            putExtra("contactImage", contact.image)
+                            putExtra("contact", contact)
                         }
                         context.startActivity(intent)
+                        true
+                    }
+                    R.id.menuContactEliminar -> {
+                        // Eliminar el contacto de la lista
+                        (lista as ArrayList).removeAt(adapterPosition)
+                        notifyItemRemoved(adapterPosition)
                         true
                     }
                     else -> false

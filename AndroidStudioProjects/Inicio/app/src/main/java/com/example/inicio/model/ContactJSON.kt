@@ -1,5 +1,7 @@
 package com.example.inicio.model
 
+import java.io.Serializable
+
 data class ContactJSON (
     val id: Long? = null,
     val firstName: String? = null,
@@ -29,7 +31,7 @@ data class ContactJSON (
     val userAgent: String? = null,
     val crypto: Crypto? = null,
     val role: String? = null
-)
+) : Serializable
 
 data class Address (
     val address: String? = null,
@@ -39,12 +41,12 @@ data class Address (
     val postalCode: String? = null,
     val coordinates: Coordinates? = null,
     val country: String? = null
-)
+) : Serializable
 
 data class Coordinates (
     val lat: Double? = null,
     val lng: Double? = null
-)
+) : Serializable
 
 data class Bank (
     val cardExpire: String? = null,
@@ -52,22 +54,22 @@ data class Bank (
     val cardType: String? = null,
     val currency: String? = null,
     val iban: String? = null
-)
+) : Serializable
 
 data class Company (
     val department: String? = null,
     val name: String? = null,
     val title: String? = null,
     val address: Address? = null
-)
+) : Serializable
 
 data class Crypto (
     val coin: String? = null,
     val wallet: String? = null,
     val network: String? = null
-)
+) : Serializable
 
 data class Hair (
     val color: String? = null,
     val type: String? = null
-)
+) : Serializable

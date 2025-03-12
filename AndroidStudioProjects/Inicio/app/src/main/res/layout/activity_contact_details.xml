@@ -1,41 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.ContactDetailsActivity">
 
-    <ImageView
-        android:id="@+id/imageContact"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/base"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Nombre del contacto"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/imageContact"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Teléfono"
-        app:layout_constraintTop_toBottomOf="@id/textName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Imagen del contacto -->
+        <ImageView
+            android:id="@+id/imageContact"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Imagen del Contacto"
+            android:layout_marginBottom="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Nombre completo -->
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Correo electrónico -->
+        <TextView
+            android:id="@+id/textEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Teléfono -->
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Edad -->
+        <TextView
+            android:id="@+id/textAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Género -->
+        <TextView
+            android:id="@+id/textGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Maiden Name -->
+        <TextView
+            android:id="@+id/textMaidenName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maiden Name"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/textUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Password -->
+        <TextView
+            android:id="@+id/textPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Fecha de nacimiento -->
+        <TextView
+            android:id="@+id/textBirthDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birth Date"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Grupo sanguíneo -->
+        <TextView
+            android:id="@+id/textBloodGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood Group"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Altura -->
+        <TextView
+            android:id="@+id/textHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Peso -->
+        <TextView
+            android:id="@+id/textWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Color de ojos -->
+        <TextView
+            android:id="@+id/textEyeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eye Color"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Datos del cabello -->
+        <TextView
+            android:id="@+id/textHair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hair"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Dirección IP -->
+        <TextView
+            android:id="@+id/textIp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IP"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Dirección completa -->
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- MAC Address -->
+        <TextView
+            android:id="@+id/textMacAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAC Address"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Universidad -->
+        <TextView
+            android:id="@+id/textUniversity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="University"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Datos bancarios -->
+        <TextView
+            android:id="@+id/textBank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bank"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Datos de la compañía -->
+        <TextView
+            android:id="@+id/textCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- EIN -->
+        <TextView
+            android:id="@+id/textEin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EIN"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- SSN -->
+        <TextView
+            android:id="@+id/textSsn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SSN"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- User Agent -->
+        <TextView
+            android:id="@+id/textUserAgent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Agent"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Datos de Crypto -->
+        <TextView
+            android:id="@+id/textCrypto"
+            android:layout_width
+
+
+
+
+                ="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crypto"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Role -->
+        <TextView
+            android:id="@+id/textRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+</ScrollView>
