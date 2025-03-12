@@ -1,48 +1,87 @@
 package com.example.inicio.adapter
 
-import android.annotation.SuppressLint
+import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.inicio.R
-import com.example.inicio.model.Contact
 import com.example.inicio.model.ContactJSON
 
-class ContactAdapter(var lista: List<ContactJSON>, var context: Context):
+class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
     RecyclerView.Adapter<ContactAdapter.MyHolder>() {
-    inner class MyHolder(itemView:View): ViewHolder(itemView) {
-        // representa el patron de cada una de las filas -> XML
-        // la extraccion de cada uno de los elementos del patron
-        // TODO poner la imagen via CDN
+
+    inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imagen = itemView.findViewById<ImageView>(R.id.imageCard)
         val toolbar: Toolbar = itemView.findViewById(R.id.toolbarCard)
         val textPhone: TextView = itemView.findViewById(R.id.textCard)
 
-        // TODO poner un menu en cada toolbar
         init {
             toolbar.inflateMenu(R.menu.contact_menu)
+            toolbar.setOnMenuItemClickListener { menuItem: MenuItem ->
+                when (menuItem.itemId) {
+                    R.id.menuContactLlamar -> {
+                        val phone = lista[adapterPosition].phone
+                        if (phone != null) {
+                            makeCall(phone)
+                        }
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }
+
+        private fun makeCall(phone: String) {
+            val callIntent = Intent(Intent.ACTION_CALL).apply {
+                data = Uri.parse("tel:$phone")
+            }
+            // Almacenar el contexto en una variable local para garantizar su tipo
+            val activityContext = context
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.CALL_PHONE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                context.startActivity(callIntent)
+            } else {
+                // Verificar si el contexto es una instancia de AppCompatActivity
+                if (activityContext is androidx.appcompat.app.AppCompatActivity) {
+                    ActivityCompat.requestPermissions(
+                        activityContext,
+                        arrayOf(Manifest.permission.CALL_PHONE),
+                        1
+                    )
+                } else {
+                    // Mostrar un mensaje de error si no es posible solicitar permisos
+                    Toast.makeText(context, "No se puede realizar la llamada.", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        // obtener el item_recycler de alguna forma para poder retornar el holder
         val vista: View = LayoutInflater.from(context)
-            .inflate(R.layout.item_recycler,parent,false)
+            .inflate(R.layout.item_recycler, parent, false)
         return MyHolder(vista)
     }
+
     override fun getItemCount(): Int {
-        // cuantos elementos tengo -> cuantas filas se renderizan
         return lista.size
     }
+
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        // asociar parte grafica (holder) con los datos (el que le toca)
         val contact = lista[position]
         holder.toolbar.title = contact.firstName + " " + contact.lastName
         holder.textPhone.text = contact.phone.toString()
@@ -50,9 +89,8 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context):
             .placeholder(R.drawable.base).into(holder.imagen)
     }
 
-    fun addContact(contact: ContactJSON){
-        // Quiero add, sin cambiar la lista en el constructor
+    fun addContact(contact: ContactJSON) {
         (lista as ArrayList).add(contact)
-        notifyItemInserted(lista.size-1)
+        notifyItemInserted(lista.size - 1)
     }
 }

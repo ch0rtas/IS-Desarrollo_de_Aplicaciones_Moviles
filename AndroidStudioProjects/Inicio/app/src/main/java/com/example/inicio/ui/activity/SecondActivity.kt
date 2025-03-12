@@ -48,7 +48,7 @@ class SecondActivity : AppCompatActivity() {
                 // Log.v("datos", userJSON.getString("firstName"))
                 // ContactJSON -> Object
                 val contact: ContactJSON = gson.fromJson(userJSON.toString(), ContactJSON::class.java)
-                listaContacts.add(contact)
+                // listaContacts.add(contact)
                 contactAdapter.addContact(contact)
                 Log.v("datos", contact.firstName ?:"sin firstName")
             }
