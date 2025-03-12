@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.inicio.R
 import com.example.inicio.model.ContactJSON
+import com.example.inicio.ui.activity.ContactDetailsActivity
 
 class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
     RecyclerView.Adapter<ContactAdapter.MyHolder>() {
@@ -38,6 +39,16 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
                         }
                         true
                     }
+                    R.id.menuContactDetalle -> {
+                        val contact = lista[adapterPosition]
+                        val intent = Intent(context, ContactDetailsActivity::class.java).apply {
+                            putExtra("contactName", "${contact.firstName} ${contact.lastName}")
+                            putExtra("contactPhone", contact.phone)
+                            putExtra("contactImage", contact.image)
+                        }
+                        context.startActivity(intent)
+                        true
+                    }
                     else -> false
                 }
             }
@@ -47,8 +58,6 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
             val callIntent = Intent(Intent.ACTION_CALL).apply {
                 data = Uri.parse("tel:$phone")
             }
-            // Almacenar el contexto en una variable local para garantizar su tipo
-            val activityContext = context
             if (ActivityCompat.checkSelfPermission(
                     context,
                     Manifest.permission.CALL_PHONE
@@ -57,14 +66,13 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
                 context.startActivity(callIntent)
             } else {
                 // Verificar si el contexto es una instancia de AppCompatActivity
-                if (activityContext is androidx.appcompat.app.AppCompatActivity) {
+                if (context is androidx.appcompat.app.AppCompatActivity) {
                     ActivityCompat.requestPermissions(
-                        activityContext,
+                        context as androidx.appcompat.app.AppCompatActivity,
                         arrayOf(Manifest.permission.CALL_PHONE),
                         1
                     )
                 } else {
-                    // Mostrar un mensaje de error si no es posible solicitar permisos
                     Toast.makeText(context, "No se puede realizar la llamada.", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -83,7 +91,7 @@ class ContactAdapter(var lista: List<ContactJSON>, var context: Context) :
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val contact = lista[position]
-        holder.toolbar.title = contact.firstName + " " + contact.lastName
+        holder.toolbar.title = "${contact.firstName} ${contact.lastName}"
         holder.textPhone.text = contact.phone.toString()
         Glide.with(context).load(contact.image)
             .placeholder(R.drawable.base).into(holder.imagen)
