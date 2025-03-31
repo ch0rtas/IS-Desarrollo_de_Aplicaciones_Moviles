@@ -59,6 +59,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editNombre" />
 
+    <!-- Campo para el teléfono (nuevo campo) -->
+    <EditText
+        android:id="@+id/editTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/phone"
+        android:gravity="center_vertical"
+        android:hint="@string/hint_telefono"
+        android:inputType="phone"
+        android:textColor="@android:color/black"
+        android:drawablePadding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editCorreoReg" />
+
     <EditText
         android:id="@+id/editPassReg"
         android:layout_width="0dp"
@@ -72,7 +88,7 @@
         android:drawablePadding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editCorreoReg" />
+        app:layout_constraintTop_toBottomOf="@id/editTelefono" />
 
     <EditText
         android:id="@+id/editPassConfirm"

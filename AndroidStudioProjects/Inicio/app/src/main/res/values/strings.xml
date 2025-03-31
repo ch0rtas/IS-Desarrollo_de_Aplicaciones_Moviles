@@ -50,6 +50,7 @@
     <!-- Textos para la pantalla de registro -->
     <string name="hint_nombre">Introduce tu nombre</string>
     <string name="hint_correo">Introduce tu correo</string>
+    <string name="hint_telefono">Introduce tu telefono</string>
     <string name="hint_pass">Introduce tu contraseña</string>
     <string name="hint_pass_confirm">Confirma tu contraseña</string>
     <string name="checkbox_terminos">Acepto los términos y condiciones</string>
