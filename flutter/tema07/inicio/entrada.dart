@@ -1,3 +1,5 @@
+import 'usuario.dart';
+
 void main() {
   // Variables mutables
   String nombre = "Manu";
@@ -13,6 +15,8 @@ void main() {
   print("Nombre: ${nombre} Correo: $correo Pass: $pass "
       "Direccion: ${direccion ?? "sin direccion"} "
       "Telefono: $telefono Experiencia: $experiencia");
+
+  Usuario usuario = new Usuario(nombre, correo);
 
   // Llamada con parámetros opcionales posicionales
   saludo(nombre, correo, null);
