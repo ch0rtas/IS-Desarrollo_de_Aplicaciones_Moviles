@@ -87,3 +87,4 @@ local.properties
 /build/
 *.iml
 AndroidStudioProjects/Inicio/app/google-services.json
+AndroidStudioProjects/T4-T6/Inicio/app/google-services.json
