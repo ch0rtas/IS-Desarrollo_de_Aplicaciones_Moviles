@@ -1191,6 +1191,166 @@ class PerformanceManager {
 
 ---
 
+51. ¿Qué es el ciclo de vida de una Activity en Android y cuáles son sus principales métodos?
+- a) onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy()
+- b) initState(), build(), dispose()
+- c) viewDidLoad(), viewWillAppear(), viewDidAppear()
+- d) Ninguna de las anteriores
+
+---
+
+52. ¿Cuál es la diferencia entre StatefulWidget y StatelessWidget en Flutter?
+- a) StatefulWidget mantiene estado mutable mientras que StatelessWidget es inmutable
+- b) StatefulWidget es más rápido que StatelessWidget
+- c) StatelessWidget puede tener animaciones mientras que StatefulWidget no
+- d) No hay diferencia significativa
+
+---
+
+53. ¿Qué es el patrón Repository y cuál es su propósito principal?
+- a) Es un patrón que solo se usa para bases de datos
+- b) Es un patrón que abstrae la fuente de datos y centraliza la lógica de acceso a datos
+- c) Es un patrón que solo se usa para APIs REST
+- d) Es un patrón que solo se usa para Firebase
+
+---
+
+54. ¿Cuál es la diferencia entre LiveData y Flow en Android?
+- a) LiveData es solo para UI mientras que Flow es para operaciones asíncronas
+- b) Flow es más antiguo que LiveData
+- c) LiveData puede emitir múltiples valores mientras que Flow solo uno
+- d) No hay diferencia significativa
+
+---
+
+55. ¿Qué es el patrón BLoC (Business Logic Component) y cuándo se debe usar?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que separa la lógica de negocio de la UI y maneja el estado de la aplicación
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+56. ¿Cuál es la diferencia entre SharedPreferences y DataStore en Android?
+- a) DataStore es más antiguo que SharedPreferences
+- b) SharedPreferences es asíncrono mientras que DataStore es síncrono
+- c) DataStore es más moderno, tipo-seguro y asíncrono, mientras que SharedPreferences es síncrono y menos seguro
+- d) No hay diferencia significativa
+
+---
+
+57. ¿Qué es la inyección de dependencias y cuáles son sus beneficios?
+- a) Es una técnica que solo se usa para testing
+- b) Es una técnica que permite pasar dependencias a una clase desde fuera, mejorando la testabilidad y mantenibilidad
+- c) Es una técnica que solo se usa para bases de datos
+- d) Es una técnica que solo se usa para APIs
+
+---
+
+58. ¿Cuál es la diferencia entre Coroutines y RxJava en Android?
+- a) Coroutines es más antiguo que RxJava
+- b) RxJava es más simple que Coroutines
+- c) Coroutines es más ligero y tiene una sintaxis más simple, mientras que RxJava es más potente pero más complejo
+- d) No hay diferencia significativa
+
+---
+
+59. ¿Qué es el patrón MVVM (Model-View-ViewModel) y cuáles son sus componentes principales?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que separa la lógica de negocio (Model), la UI (View) y el estado (ViewModel)
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+60. ¿Cuál es la diferencia entre Navigator 1.0 y Navigator 2.0 en Flutter?
+- a) Navigator 2.0 es más antiguo que Navigator 1.0
+- b) Navigator 1.0 es más potente que Navigator 2.0
+- c) Navigator 2.0 ofrece más control sobre la navegación y el estado de la ruta, mientras que Navigator 1.0 es más simple
+- d) No hay diferencia significativa
+
+---
+
+61. ¿Qué es el patrón Clean Architecture y cuáles son sus capas principales?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que separa la aplicación en capas (presentación, dominio, datos) para mejorar la mantenibilidad
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+62. ¿Cuál es la diferencia entre State Management y State Management en Flutter?
+- a) No hay diferencia, son lo mismo
+- b) State Management es para Android mientras que State Management es para Flutter
+- c) State Management se refiere a cómo manejar el estado de la aplicación, mientras que State Management es un patrón específico
+- d) Ninguna de las anteriores
+
+---
+
+63. ¿Qué es el patrón Observer y cómo se implementa en Android/Flutter?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que permite a objetos suscribirse a cambios en otro objeto (como LiveData, Stream, etc.)
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+64. ¿Cuál es la diferencia entre WorkManager y JobScheduler en Android?
+- a) WorkManager es más antiguo que JobScheduler
+- b) JobScheduler es más potente que WorkManager
+- c) WorkManager es una API unificada que usa JobScheduler internamente en Android 6.0+
+- d) No hay diferencia significativa
+
+---
+
+65. ¿Qué es el patrón Singleton y cuándo se debe usar?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que asegura que una clase tenga una única instancia y proporciona un punto de acceso global
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+66. ¿Cuál es la diferencia entre Firebase Authentication y Firebase Auth en Flutter?
+- a) Firebase Authentication es más antiguo que Firebase Auth
+- b) Firebase Auth es más potente que Firebase Authentication
+- c) Son el mismo servicio, solo que Firebase Auth es el nombre en Flutter
+- d) No hay diferencia significativa
+
+---
+
+67. ¿Qué es el patrón Factory y cuándo se debe usar?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que proporciona una interfaz para crear objetos sin especificar su clase concreta
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+68. ¿Cuál es la diferencia entre Room y SQLite en Android?
+- a) Room es más antiguo que SQLite
+- b) SQLite es más potente que Room
+- c) Room es una capa de abstracción sobre SQLite que proporciona verificación en tiempo de compilación y mapeo objeto-relacional
+- d) No hay diferencia significativa
+
+---
+
+69. ¿Qué es el patrón Adapter y cuándo se debe usar?
+- a) Es un patrón que solo se usa para UI
+- b) Es un patrón que permite la colaboración entre clases con interfaces incompatibles
+- c) Es un patrón que solo se usa para bases de datos
+- d) Es un patrón que solo se usa para APIs
+
+---
+
+70. ¿Cuál es la diferencia entre Provider y GetX en Flutter?
+- a) Provider es más antiguo que GetX
+- b) GetX es más simple que Provider
+- c) Provider es más ligero y simple, mientras que GetX es más completo pero más complejo
+- d) No hay diferencia significativa
+
+---
+
 ## Soluciones Completas
 
 1. b) Falta el import de Intent
@@ -1699,4 +1859,104 @@ class PerformanceManager {
 50. b) Falta el import de Trace
     ```kotlin
     import com.google.firebase.perf.metrics.Trace
+    ```
+
+51. a) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+52. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+53. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+54. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+55. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+56. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+57. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+58. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+59. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+60. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+61. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+62. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+63. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+64. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+65. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+66. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+67. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+68. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+69. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
+    ```
+
+70. b) Falta el import de Bundle
+    ```kotlin
+    import android.os.Bundle
     ```
