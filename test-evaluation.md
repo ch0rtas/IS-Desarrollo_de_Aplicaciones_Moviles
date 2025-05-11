@@ -151,10 +151,10 @@ db.collection("users")
         // Éxito
     }
 ```
-a) Falta el import de FirebaseFirestore
-b) Falta manejar el error
-c) Falta inicializar Firebase
-d) No hay error
+- a) Falta el import de FirebaseFirestore
+- b) Falta manejar el error
+- c) Falta inicializar Firebase
+- d) No hay error
 
 ---
 
@@ -169,10 +169,10 @@ imageRef.putFile(imageFile)
         // Éxito
     }
 ```
-a) Falta el import de FirebaseStorage
-b) Falta manejar el error
-c) Falta obtener la URL de descarga
-d) No hay error
+- a) Falta el import de FirebaseStorage
+- b) Falta manejar el error
+- c) Falta obtener la URL de descarga
+- d) No hay error
 
 ---
 
@@ -191,10 +191,10 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-a) Falta el import de NavController
-b) Falta el import de NavHostFragment
-c) Falta inicializar el NavController
-d) No hay error
+- a) Falta el import de NavController
+- b) Falta el import de NavHostFragment
+- c) Falta inicializar el NavController
+- d) No hay error
 
 ---
 
@@ -211,10 +211,10 @@ class UserViewModel : ViewModel() {
     }
 }
 ```
-a) Falta el import de ViewModel
-b) Falta el import de LiveData
-c) Falta el import de viewModelScope
-d) No hay error
+- a) Falta el import de ViewModel
+- b) Falta el import de LiveData
+- c) Falta el import de viewModelScope
+- d) No hay error
 
 ---
 
@@ -230,10 +230,10 @@ StreamBuilder<User>(
   },
 )
 ```
-a) Falta el import de StreamBuilder
-b) Falta manejar el estado de error
-c) Falta manejar el estado de carga
-d) No hay error
+- a) Falta el import de StreamBuilder
+- b) Falta manejar el estado de error
+- c) Falta manejar el estado de carga
+- d) No hay error
 
 ---
 
@@ -254,10 +254,10 @@ class _CounterWidgetState extends State<CounterWidget> {
   }
 }
 ```
-a) Falta el método build
-b) Falta el import de material.dart
-c) Falta el constructor
-d) No hay error
+- a) Falta el método build
+- b) Falta el import de material.dart
+- c) Falta el constructor
+- d) No hay error
 
 ---
 
@@ -275,10 +275,10 @@ class AuthViewModel : ViewModel() {
     }
 }
 ```
-a) Falta el import de FirebaseAuth
-b) FirebaseUser está deprecado
-c) Falta manejar el error de signOut
-d) No hay error
+- a) Falta el import de FirebaseAuth
+- b) FirebaseUser está deprecado
+- c) Falta manejar el error de signOut
+- d) No hay error
 
 ---
 
@@ -292,10 +292,10 @@ myRef.setValue(user)
         // Éxito
     }
 ```
-a) Falta el import de FirebaseDatabase
-b) Falta manejar el error
-c) Falta establecer las reglas de seguridad
-d) No hay error
+- a) Falta el import de FirebaseDatabase
+- b) Falta manejar el error
+- c) Falta establecer las reglas de seguridad
+- d) No hay error
 
 ---
 
@@ -317,10 +317,10 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-a) Falta el import de CoroutineScope
-b) Falta cancelar el scope en onDestroy
-c) Falta manejar excepciones
-d) No hay error
+- a) Falta el import de CoroutineScope
+- b) Falta cancelar el scope en onDestroy
+- c) Falta manejar excepciones
+- d) No hay error
 
 ---
 
@@ -338,10 +338,10 @@ interface UserDao {
     fun updateUser(user: User)
 }
 ```
-a) Falta el import de Dao
-b) Falta el import de Query
-c) Falta el método delete
-d) No hay error
+- a) Falta el import de Dao
+- b) Falta el import de Query
+- c) Falta el método delete
+- d) No hay error
 
 ---
 
@@ -357,10 +357,10 @@ FutureBuilder<String>(
   },
 )
 ```
-a) Falta el import de FutureBuilder
-b) Falta manejar el estado de error
-c) Falta el import de CircularProgressIndicator
-d) No hay error
+- a) Falta el import de FutureBuilder
+- b) Falta manejar el estado de error
+- c) Falta el import de CircularProgressIndicator
+- d) No hay error
 
 ---
 
@@ -376,10 +376,10 @@ class CounterProvider extends ChangeNotifier {
   }
 }
 ```
-a) Falta el import de provider
-b) Falta llamar a notifyListeners()
-c) Falta el constructor
-d) No hay error
+- a) Falta el import de provider
+- b) Falta llamar a notifyListeners()
+- c) Falta el constructor
+- d) No hay error
 
 ---
 
@@ -392,10 +392,10 @@ exports.onUserCreated = functions.auth.user().onCreate((user) => {
   });
 });
 ```
-a) Falta el import de functions
-b) Falta el import de admin
-c) Falta manejar el error
-d) No hay error
+- a) Falta el import de functions
+- b) Falta el import de admin
+- c) Falta manejar el error
+- d) No hay error
 
 ---
 
@@ -411,10 +411,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 }
 ```
-a) Falta el import de FirebaseMessagingService
-b) Falta crear el canal de notificación
-c) Falta el import de RemoteMessage
-d) No hay error
+- a) Falta el import de FirebaseMessagingService
+- b) Falta crear el canal de notificación
+- c) Falta el import de RemoteMessage
+- d) No hay error
 
 ---
 
@@ -877,8 +877,8 @@ exports.onMovieCreated = functions.firestore
     });
 ```
 - a) Falta el import de functions
-- b) Falta manejar el error
-- c) Falta el import de admin
+- b) Falta el import de admin
+- c) Falta manejar el error
 - d) No hay error
 
 ---
