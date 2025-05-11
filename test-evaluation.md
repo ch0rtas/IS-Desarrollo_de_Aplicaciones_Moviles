@@ -1351,6 +1351,86 @@ class PerformanceManager {
 
 ---
 
+71. ¿Cuál es la diferencia entre `val` y `var` en Kotlin?
+- a) `val` es para variables mutables y `var` para inmutables
+- b) `val` es para variables inmutables y `var` para mutables
+- c) `val` es para constantes y `var` para variables temporales
+- d) No hay diferencia significativa
+
+---
+
+72. ¿Qué es una función de extensión en Kotlin y cuál es su propósito?
+- a) Es una función que solo puede ser llamada desde una clase específica
+- b) Es una función que extiende la funcionalidad de una clase sin modificar su código fuente
+- c) Es una función que solo puede ser usada en proyectos grandes
+- d) Es una función que solo puede ser usada en Android
+
+---
+
+73. ¿Cuál es la diferencia entre `lateinit` y `by lazy` en Kotlin?
+- a) `lateinit` es para propiedades mutables y `by lazy` para inmutables
+- b) `lateinit` es para propiedades inmutables y `by lazy` para mutables
+- c) `lateinit` es para inicialización tardía de propiedades no-nulas, mientras que `by lazy` es para propiedades computadas
+- d) No hay diferencia significativa
+
+---
+
+74. ¿Qué son las corrutinas en Kotlin y cuál es su ventaja principal?
+- a) Son hilos ligeros que permiten programación asíncrona sin bloqueo
+- b) Son funciones que solo pueden ser usadas en Android
+- c) Son funciones que solo pueden ser usadas en proyectos grandes
+- d) Son funciones que solo pueden ser usadas en bases de datos
+
+---
+
+75. ¿Cuál es la diferencia entre `apply`, `let`, `run`, `with` y `also` en Kotlin?
+- a) Son funciones de extensión que permiten diferentes formas de trabajar con objetos
+- b) Son funciones que solo pueden ser usadas en Android
+- c) Son funciones que solo pueden ser usadas en proyectos grandes
+- d) No hay diferencia significativa
+
+---
+
+76. ¿Qué es un data class en Kotlin y cuáles son sus características principales?
+- a) Es una clase que solo puede contener datos primitivos
+- b) Es una clase que automáticamente implementa equals(), hashCode(), toString() y copy()
+- c) Es una clase que solo puede ser usada en bases de datos
+- d) Es una clase que solo puede ser usada en Android
+
+---
+
+77. ¿Cuál es la diferencia entre `object` y `class` en Kotlin?
+- a) `object` es para clases estáticas y `class` para instanciables
+- b) `object` es para clases instanciables y `class` para estáticas
+- c) `object` es para clases que solo pueden ser usadas en Android
+- d) No hay diferencia significativa
+
+---
+
+78. ¿Qué son las funciones de orden superior en Kotlin y cuál es su propósito?
+- a) Son funciones que solo pueden ser usadas en Android
+- b) Son funciones que toman otras funciones como parámetros o retornan funciones
+- c) Son funciones que solo pueden ser usadas en proyectos grandes
+- d) Son funciones que solo pueden ser usadas en bases de datos
+
+---
+
+79. ¿Cuál es la diferencia entre `init` y `constructor` en Kotlin?
+- a) `init` es para inicialización de propiedades y `constructor` para crear instancias
+- b) `init` es para crear instancias y `constructor` para inicialización de propiedades
+- c) `init` es para clases que solo pueden ser usadas en Android
+- d) No hay diferencia significativa
+
+---
+
+80. ¿Qué es la delegación de propiedades en Kotlin y cuándo se debe usar?
+- a) Es un mecanismo que permite delegar la implementación de propiedades a otra clase
+- b) Es un mecanismo que solo puede ser usado en Android
+- c) Es un mecanismo que solo puede ser usado en proyectos grandes
+- d) Es un mecanismo que solo puede ser usado en bases de datos
+
+---
+
 ## Soluciones Completas
 
 1. b) Falta el import de Intent
@@ -1520,7 +1600,7 @@ class PerformanceManager {
     }
     ```
 
-19. c) Falta manejar el error
+19. b) Falta manejar el error
     ```javascript
     exports.onUserCreated = functions.auth.user().onCreate((user) => {
       return admin.firestore().collection('users').doc(user.uid).set({
@@ -1861,102 +1941,477 @@ class PerformanceManager {
     import com.google.firebase.perf.metrics.Trace
     ```
 
-51. a) Falta el import de Bundle
+51. a) onCreate(), onStart(), onResume(), onPause(), onStop(), onDestroy()
     ```kotlin
-    import android.os.Bundle
+    // Estos son los métodos principales del ciclo de vida de una Activity
+    override fun onCreate(savedInstanceState: Bundle?) { ... }
+    override fun onStart() { ... }
+    override fun onResume() { ... }
+    override fun onPause() { ... }
+    override fun onStop() { ... }
+    override fun onDestroy() { ... }
     ```
 
-52. b) Falta el import de Bundle
-    ```kotlin
-    import android.os.Bundle
+52. a) StatefulWidget mantiene estado mutable mientras que StatelessWidget es inmutable
+    ```dart
+    // StatefulWidget
+    class MyStatefulWidget extends StatefulWidget {
+      @override
+      _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+    }
+
+    // StatelessWidget
+    class MyStatelessWidget extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) { ... }
+    }
     ```
 
-53. b) Falta el import de Bundle
+53. b) Es un patrón que abstrae la fuente de datos y centraliza la lógica de acceso a datos
     ```kotlin
-    import android.os.Bundle
+    class UserRepository(private val userDao: UserDao, private val api: UserApi) {
+        fun getUser(id: String): Flow<User> {
+            return flow {
+                // Primero emitir datos locales
+                emit(userDao.getUser(id))
+                // Luego actualizar desde la red
+                val user = api.getUser(id)
+                userDao.insert(user)
+                emit(user)
+            }
+        }
+    }
     ```
 
-54. b) Falta el import de Bundle
+54. a) LiveData es solo para UI mientras que Flow es para operaciones asíncronas
     ```kotlin
-    import android.os.Bundle
+    // LiveData - solo para UI
+    val userLiveData: LiveData<User> = userDao.getUser()
+
+    // Flow - para operaciones asíncronas
+    val userFlow: Flow<User> = flow {
+        emit(userDao.getUser())
+        val user = api.getUser()
+        emit(user)
+    }
     ```
 
-55. b) Falta el import de Bundle
-    ```kotlin
-    import android.os.Bundle
+55. b) Es un patrón que separa la lógica de negocio de la UI y maneja el estado de la aplicación
+    ```dart
+    class CounterBloc extends Bloc<CounterEvent, CounterState> {
+        CounterBloc() : super(CounterInitial()) {
+            on<IncrementEvent>((event, emit) {
+                emit(CounterState(counter: state.counter + 1));
+            });
+        }
+    }
     ```
 
-56. b) Falta el import de Bundle
+56. c) DataStore es más moderno, tipo-seguro y asíncrono, mientras que SharedPreferences es síncrono y menos seguro
     ```kotlin
-    import android.os.Bundle
+    // DataStore
+    val dataStore = context.createDataStore(name = "settings")
+    dataStore.edit { preferences ->
+        preferences[PreferencesKeys.DARK_MODE] = true
+    }
+
+    // SharedPreferences
+    val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+    prefs.edit().putBoolean("dark_mode", true).apply()
     ```
 
-57. b) Falta el import de Bundle
+57. b) Es una técnica que permite pasar dependencias a una clase desde fuera, mejorando la testabilidad y mantenibilidad
     ```kotlin
-    import android.os.Bundle
+    @Module
+    @InstallIn(SingletonComponent::class)
+    object AppModule {
+        @Provides
+        @Singleton
+        fun provideUserRepository(
+            userDao: UserDao,
+            userApi: UserApi
+        ): UserRepository {
+            return UserRepositoryImpl(userDao, userApi)
+        }
+    }
     ```
 
-58. b) Falta el import de Bundle
+58. c) Coroutines es más ligero y tiene una sintaxis más simple, mientras que RxJava es más potente pero más complejo
     ```kotlin
-    import android.os.Bundle
+    // Coroutines
+    viewModelScope.launch {
+        val result = withContext(Dispatchers.IO) {
+            repository.getData()
+        }
+        _data.value = result
+    }
+
+    // RxJava
+    repository.getData()
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe { result ->
+            _data.value = result
+        }
     ```
 
-59. b) Falta el import de Bundle
+59. b) Es un patrón que separa la lógica de negocio (Model), la UI (View) y el estado (ViewModel)
     ```kotlin
-    import android.os.Bundle
+    // Model
+    data class User(val id: String, val name: String)
+
+    // ViewModel
+    class UserViewModel : ViewModel() {
+        private val _user = MutableLiveData<User>()
+        val user: LiveData<User> = _user
+    }
+
+    // View
+    class UserActivity : AppCompatActivity() {
+        private val viewModel: UserViewModel by viewModels()
+    }
     ```
 
-60. b) Falta el import de Bundle
-    ```kotlin
-    import android.os.Bundle
+60. c) Navigator 2.0 ofrece más control sobre la navegación y el estado de la ruta, mientras que Navigator 1.0 es más simple
+    ```dart
+    // Navigator 1.0
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+
+    // Navigator 2.0
+    class RouterDelegate extends RouterDelegate<PageConfiguration> {
+        @override
+        Widget build(BuildContext context) {
+            return Navigator(
+                pages: _pages,
+                onPopPage: (route, result) {
+                    if (!route.didPop(result)) return false;
+                    _pages.removeLast();
+                    notifyListeners();
+                    return true;
+                },
+            );
+        }
+    }
     ```
 
-61. b) Falta el import de Bundle
+61. b) Es un patrón que separa la aplicación en capas (presentación, dominio, datos) para mejorar la mantenibilidad
     ```kotlin
-    import android.os.Bundle
+    // Presentación
+    class UserViewModel : ViewModel() { ... }
+
+    // Dominio
+    class GetUserUseCase @Inject constructor(
+        private val userRepository: UserRepository
+    ) { ... }
+
+    // Datos
+    class UserRepositoryImpl @Inject constructor(
+        private val userDao: UserDao,
+        private val userApi: UserApi
+    ) : UserRepository { ... }
     ```
 
-62. b) Falta el import de Bundle
-    ```kotlin
-    import android.os.Bundle
+62. c) State Management se refiere a cómo manejar el estado de la aplicación, mientras que State Management es un patrón específico
+    ```dart
+    // State Management general
+    class Counter extends StatefulWidget {
+        @override
+        _CounterState createState() => _CounterState();
+    }
+
+    // Patrón específico (Provider)
+    class CounterProvider extends ChangeNotifier {
+        int _count = 0;
+        int get count => _count;
+        void increment() {
+            _count++;
+            notifyListeners();
+        }
+    }
     ```
 
-63. b) Falta el import de Bundle
+63. b) Es un patrón que permite a objetos suscribirse a cambios en otro objeto (como LiveData, Stream, etc.)
     ```kotlin
-    import android.os.Bundle
+    // Android
+    val userLiveData = MutableLiveData<User>()
+    userLiveData.observe(this) { user ->
+        updateUI(user)
+    }
+
+    // Flutter
+    StreamBuilder<User>(
+        stream: userStream,
+        builder: (context, snapshot) {
+            return Text(snapshot.data?.name ?? '');
+        },
+    )
     ```
 
-64. b) Falta el import de Bundle
+64. c) WorkManager es una API unificada que usa JobScheduler internamente en Android 6.0+
     ```kotlin
-    import android.os.Bundle
+    val workRequest = OneTimeWorkRequestBuilder<MyWorker>()
+        .setConstraints(
+            Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build()
+        )
+        .build()
+    WorkManager.getInstance(context).enqueue(workRequest)
     ```
 
-65. b) Falta el import de Bundle
+65. b) Es un patrón que asegura que una clase tenga una única instancia y proporciona un punto de acceso global
     ```kotlin
-    import android.os.Bundle
+    object DatabaseManager {
+        private var instance: Database? = null
+        
+        fun getInstance(context: Context): Database {
+            return instance ?: synchronized(this) {
+                instance ?: createDatabase(context).also { instance = it }
+            }
+        }
+    }
     ```
 
-66. b) Falta el import de Bundle
-    ```kotlin
-    import android.os.Bundle
+66. c) Son el mismo servicio, solo que Firebase Auth es el nombre en Flutter
+    ```dart
+    // Flutter
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password
+    );
+
+    // Android
+    val auth = FirebaseAuth.getInstance()
+    auth.signInWithEmailAndPassword(email, password)
     ```
 
-67. b) Falta el import de Bundle
+67. b) Es un patrón que proporciona una interfaz para crear objetos sin especificar su clase concreta
     ```kotlin
-    import android.os.Bundle
+    interface Animal
+    class Dog : Animal
+    class Cat : Animal
+
+    class AnimalFactory {
+        fun createAnimal(type: String): Animal {
+            return when (type) {
+                "dog" -> Dog()
+                "cat" -> Cat()
+                else -> throw IllegalArgumentException()
+            }
+        }
+    }
     ```
 
-68. b) Falta el import de Bundle
+68. c) Room es una capa de abstracción sobre SQLite que proporciona verificación en tiempo de compilación y mapeo objeto-relacional
     ```kotlin
-    import android.os.Bundle
+    @Entity
+    data class User(
+        @PrimaryKey val id: Int,
+        val name: String
+    )
+
+    @Dao
+    interface UserDao {
+        @Query("SELECT * FROM user")
+        fun getAll(): List<User>
+    }
     ```
 
-69. b) Falta el import de Bundle
+69. b) Es un patrón que permite la colaboración entre clases con interfaces incompatibles
     ```kotlin
-    import android.os.Bundle
+    interface Target {
+        fun request()
+    }
+
+    class Adaptee {
+        fun specificRequest() { ... }
+    }
+
+    class Adapter(private val adaptee: Adaptee) : Target {
+        override fun request() {
+            adaptee.specificRequest()
+        }
+    }
     ```
 
-70. b) Falta el import de Bundle
+70. c) Provider es más ligero y simple, mientras que GetX es más completo pero más complejo
+    ```dart
+    // Provider
+    class CounterProvider extends ChangeNotifier {
+        int _count = 0;
+        int get count => _count;
+        void increment() {
+            _count++;
+            notifyListeners();
+        }
+    }
+
+    // GetX
+    class CounterController extends GetxController {
+        var count = 0.obs;
+        void increment() => count++;
+    }
+    ```
+
+71. b) `val` es para variables inmutables y `var` para mutables
     ```kotlin
-    import android.os.Bundle
+    // val - inmutable (no se puede reasignar)
+    val name = "John"
+    // name = "Jane" // Error: Val cannot be reassigned
+
+    // var - mutable (se puede reasignar)
+    var age = 25
+    age = 26 // OK
+    ```
+
+72. b) Es una función que extiende la funcionalidad de una clase sin modificar su código fuente
+    ```kotlin
+    // Función de extensión para String
+    fun String.addHello(): String {
+        return "Hello $this"
+    }
+
+    // Uso
+    val name = "John"
+    println(name.addHello()) // Imprime: Hello John
+    ```
+
+73. c) `lateinit` es para inicialización tardía de propiedades no-nulas, mientras que `by lazy` es para propiedades computadas
+    ```kotlin
+    class MyClass {
+        // lateinit - para propiedades que se inicializarán después
+        lateinit var name: String
+        
+        // by lazy - para propiedades computadas que se inicializan en su primer uso
+        val expensiveComputation by lazy {
+            // Cálculo costoso que solo se ejecuta una vez
+            "Resultado"
+        }
+    }
+    ```
+
+74. a) Son hilos ligeros que permiten programación asíncrona sin bloqueo
+    ```kotlin
+    // Ejemplo de corrutina
+    fun main() = runBlocking {
+        launch {
+            // Operación asíncrona
+            val result = async {
+                // Cálculo en segundo plano
+                "Resultado"
+            }.await()
+            println(result)
+        }
+    }
+    ```
+
+75. a) Son funciones de extensión que permiten diferentes formas de trabajar con objetos
+    ```kotlin
+    val person = Person("John", 25)
+
+    // apply - configura el objeto y retorna el objeto
+    person.apply {
+        name = "Jane"
+        age = 26
+    }
+
+    // let - ejecuta código y retorna el resultado
+    val nameLength = person.let { it.name.length }
+
+    // run - similar a let pero con this
+    val ageInDays = person.run { age * 365 }
+
+    // with - similar a run pero como función
+    with(person) {
+        println(name)
+        println(age)
+    }
+
+    // also - ejecuta código y retorna el objeto
+    person.also { println("Created: ${it.name}") }
+    ```
+
+76. b) Es una clase que automáticamente implementa equals(), hashCode(), toString() y copy()
+    ```kotlin
+    data class User(
+        val id: Int,
+        val name: String,
+        val email: String
+    )
+
+    // Uso automático de funciones generadas
+    val user1 = User(1, "John", "john@email.com")
+    val user2 = user1.copy(name = "Jane") // Crea una copia con nombre modificado
+    println(user1 == user2) // Compara usando equals()
+    println(user1) // Usa toString()
+    ```
+
+77. a) `object` es para clases estáticas y `class` para instanciables
+    ```kotlin
+    // object - singleton
+    object DatabaseManager {
+        fun connect() { ... }
+    }
+    // Uso
+    DatabaseManager.connect()
+
+    // class - instanciable
+    class User(val name: String)
+    // Uso
+    val user = User("John")
+    ```
+
+78. b) Son funciones que toman otras funciones como parámetros o retornan funciones
+    ```kotlin
+    // Función que toma otra función como parámetro
+    fun executeOperation(operation: (Int, Int) -> Int) {
+        val result = operation(5, 3)
+        println(result)
+    }
+
+    // Uso
+    executeOperation { a, b -> a + b } // Suma
+    executeOperation { a, b -> a * b } // Multiplicación
+    ```
+
+79. a) `init` es para inicialización de propiedades y `constructor` para crear instancias
+    ```kotlin
+    class Person(val name: String) {
+        // Constructor primario
+        init {
+            // Inicialización de propiedades
+            println("Inicializando Person")
+        }
+
+        // Constructor secundario
+        constructor(name: String, age: Int) : this(name) {
+            println("Constructor secundario con edad: $age")
+        }
+    }
+    ```
+
+80. a) Es un mecanismo que permite delegar la implementación de propiedades a otra clase
+    ```kotlin
+    // Delegación de propiedad
+    class Delegate {
+        private var value: String = ""
+        
+        operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+            return value
+        }
+        
+        operator fun setValue(thisRef: Any?, property: KProperty<*>, newValue: String) {
+            value = newValue
+        }
+    }
+
+    class Example {
+        var name: String by Delegate()
+    }
+
+    // Uso
+    val example = Example()
+    example.name = "John" // Usa setValue
+    println(example.name) // Usa getValue
     ```
