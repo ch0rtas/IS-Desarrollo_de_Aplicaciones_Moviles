@@ -1147,7 +1147,7 @@ class AnalyticsManager {
 
 ---
 
-49. En este código de Firebase Crashlytics, ¿qué error hay?
+49. En este código de Firebase Crashlytics, ¿qué falta?
 ```kotlin
 class CrashlyticsManager {
     private val firebaseCrashlytics = FirebaseCrashlytics.getInstance()
@@ -1188,10 +1188,6 @@ class PerformanceManager {
 - b) Falta el import de Trace
 - c) Falta el import de Context
 - d) No hay error
-
----
-
----
 
 ---
 
