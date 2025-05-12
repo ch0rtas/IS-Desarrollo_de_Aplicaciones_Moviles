@@ -2415,3 +2415,4 @@ class PerformanceManager {
     example.name = "John" // Usa setValue
     println(example.name) // Usa getValue
     ```
+    
